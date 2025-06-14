@@ -8,8 +8,8 @@
     }
 
    .site-logo {
-   max-width: 500px;
-   height: 600;
+   width: 300px;
+   height: auto;
    display: block;
    }
 
