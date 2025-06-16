@@ -4,7 +4,7 @@
 
     .navbar {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 10px; background: #250;
+      padding: 10px; background: bisque;
     }
 
     .navbar img { height: 40px; }
