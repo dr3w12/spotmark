@@ -1,10 +1,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #111;background-color:bisque; color:#FFFFF ; }
+    body { font-family: Arial, sans-serif;background-color:bisque; color:#FFFFF ; }
 
 
     .navbar {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 10px; background: #222;
+      padding: 10px; background: #250;
     }
 
     .navbar img { height: 40px; }
