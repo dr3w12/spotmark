@@ -65,6 +65,9 @@ const API_KEY = '176c535eab089503f528252d652a4766';
       } else if (server === "player.videasy.net") {
         embedURL = `https://player.videasy.net/${type}/${currentItem.id}`;
       }
+        else if (server === "2embed.cc") {
+        embedURL = `https://www.2embed.cc/${type}/${currentItem.id}`;
+      }
 
       document.getElementById('modal-video').src = embedURL;
     }
