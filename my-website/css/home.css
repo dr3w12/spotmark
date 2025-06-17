@@ -15,10 +15,10 @@
     }
 
     .site-logo {
-    max-width: 350px
-    height: auto;
+    max-width: 150px
+    height: 50vh;
     display: block
-    float: right;
+    padding:20px;
     }
     .banner {
       height: 50vh;
