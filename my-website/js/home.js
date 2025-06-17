@@ -68,11 +68,11 @@ const API_KEY = '176c535eab089503f528252d652a4766';
         else if (server === "2embed.cc") {
         embedURL = `http://www.2embed.cc/${type}/${currentItem.id}`;
       }
-        else if (server === "vidjoy.pro") {
-        embedURL = `https://vidjoy.pro/${type}/${currentItem.id}`;
+        else if (server === "play.123embed.net") {
+        embedURL = 'https://play.123embed.net/${type}/${currentItem.id}`;
       }    
-        else if (server === "www.NontonGo.win") {
-        embedURL = `https://www.nontongo.win/${type}/${currentItem.id}`;
+        else if (server === "rivestream.org") {
+        embedURL = `https://rivestream.org/${type}/${currentItem.id}`;
       }
         
 
