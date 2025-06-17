@@ -15,10 +15,13 @@
       padding: 5px; border-radius: 5px; border: none;
     }
    
-     .site-logo {
-      width: 300px;
-      height: auto;
-     display: block;
+     site-logo {
+    max-width: 150px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures it behaves like a block element for sizing */
+    visibility: visible; /* Just in case it's set to hidden elsewhere */
+    opacity: 1; /* Just in case it's set to 0 elsewhere */
+     }
      }
     .banner {
       height: 50vh;
