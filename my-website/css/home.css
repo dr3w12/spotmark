@@ -18,6 +18,7 @@
     max-width: 350px
     height: auto;
     display: block
+    float: right;
     }
     .banner {
       height: 50vh;
