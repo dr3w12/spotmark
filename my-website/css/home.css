@@ -17,9 +17,8 @@
    
      site-logo {
     max-width: 150px
-    height: auto;
+    height: 50px;
     display: block;
-    visibility: visible;
      }
     .banner {
       height: 50vh;
