@@ -10,15 +10,14 @@
     .navbar img { height: 40px; }
     .nav-links { display: flex; align-items: center; gap: 10px; }
     .nav-links a { color: black; text-decoration: none; margin: 0 5px; }
+    .search-bar {
+      padding: 5px; border-radius: 5px; border: none;
+    }
 
     .site-logo {
     max-width: 350px
     height: auto;
     display: block
-    }
-
-    .search-bar {
-      padding: 5px; border-radius: 5px; border: none;
     }
     .banner {
       height: 50vh;
