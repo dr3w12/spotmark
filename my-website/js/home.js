@@ -68,6 +68,9 @@ const API_KEY = '176c535eab089503f528252d652a4766';
         else if (server === "2embed.cc") {
         embedURL = `http://www.2embed.cc/${type}/${currentItem.id}`;
       }    
+        else if (server === "vidfast.pro") {
+        embedURL = `http://vidfast.pro/${type}/${currentItem.id}`;
+      }    
         
       document.getElementById('modal-video').src = embedURL;
     }
