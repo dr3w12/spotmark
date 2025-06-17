@@ -16,12 +16,10 @@
     }
    
      site-logo {
-    max-width: 150px; /* Adjust as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensures it behaves like a block element for sizing */
-    visibility: visible; /* Just in case it's set to hidden elsewhere */
-    opacity: 1; /* Just in case it's set to 0 elsewhere */
-     }
+    max-width: 150px
+    height: auto;
+    display: block;
+    visibility: visible;
      }
     .banner {
       height: 50vh;
