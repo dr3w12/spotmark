@@ -71,11 +71,7 @@ const API_KEY = '176c535eab089503f528252d652a4766';
         else if (server === "play.123embed.net") {
         embedURL = 'https://play.123embed.net/${type}/${currentItem.id}`;
       }    
-        else if (server === "rivestream.org") {
-        embedURL = `https://rivestream.org/${type}/${currentItem.id}`;
-      }
         
-
       document.getElementById('modal-video').src = embedURL;
     }
 
