@@ -3,11 +3,11 @@ const API_KEY = '176c535eab089503f528252d652a4766';
     const IMG_URL = 'https://image.tmdb.org/t/p/original';
     let currentItem;
 
-   // async function fetchTrending(type) {
-    //  const res = await fetch(`${BASE_URL}/trending/${type}/week?api_key=${API_KEY}`);
-   //   const data = await res.json();
-  //    return data.results;
- //   }
+   async function fetchTrending(type) {
+        const res = await fetch(`${BASE_URL}/trending/${type}/week?api_key=${API_KEY}`);
+        const data = await res.json();
+        return data.results;
+    }
 async function fetchEpisodes(type, id) {
   let endpoint = '';
   if (type === 'tv') {
@@ -15,25 +15,19 @@ async function fetchEpisodes(type, id) {
   } else if (type === 'anime') {
     endpoint = `/anime/${id}/episodes?api_key=${API_KEY}`;
   }
-  const res = await fetch(`${BASE_URL}${endpoint}`);
-  const data = await res.json();
-  return data.results || [];
+
+   async function fetchTrendingAnime() {
+   let allResults = [];
+
+  Fetch from multiple pages to get more anime (max 3 pages for demo)
+ for (let page = 1; page <= 3; page++)
+     {  const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);  const data = await res.json();
+       const filtered = data.results.filter(item =>     item.original_language === 'ja' && item.genre_ids.includes(16)
+  );
+  allResults = allResults.concat(filtered);  }
+
+return allResults;
 }
-   // async function fetchTrendingAnime() {
- // let allResults = [];
-
-  // Fetch from multiple pages to get more anime (max 3 pages for demo)
-//  for (let page = 1; page <= 3; page++) {
-//    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
-//    const data = await res.json();
-//    const filtered = data.results.filter(item =>
-//      item.original_language === 'ja' && item.genre_ids.includes(16)
-//    );
-//    allResults = allResults.concat(filtered);
-//  }
-
-//  return allResults;
-//}
 function displayEpisodes(episodes, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = ''; // Clear the container first
@@ -72,25 +66,22 @@ async function init() {
   });
 }
 
-// Call the init function to load everything
-init();
 
- //   function displayBanner(item) {
- //     document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
-//      document.getElementById('banner-title').textContent = item.title || item.name;
-//    }
-//
- //   function displayList(items, containerId) {
-//      const container = document.getElementById(containerId);
-//      container.innerHTML = '';
-//      items.forEach(item => {
-//        const img = document.createElement('img');
-//        img.src = `${IMG_URL}${item.poster_path}`;
-//        img.alt = item.title || item.name;
-//        img.onclick = () => showDetails(item);
-//        container.appendChild(img);
-//      });
-//    }
+
+  function displayBanner(item) {
+document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
+  document.getElementById('banner-title').textContent = item.title || item.name;
+   }
+
+  function displayList(items, containerId) {
+  const container = document.getElementById(containerId);   container.innerHTML = '';
+ items.forEach(item => {
+   const img = document.createElement('img');   img.src = `${IMG_URL}${item.poster_path}`;
+  img.alt = item.title || item.name;
+   img.onclick = () => showDetails(item);
+   container.appendChild(img);
+     });
+  }
 
     function showDetails(item) {
       currentItem = item;
