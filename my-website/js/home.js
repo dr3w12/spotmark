@@ -3,28 +3,77 @@ const API_KEY = '176c535eab089503f528252d652a4766';
     const IMG_URL = 'https://image.tmdb.org/t/p/original';
     let currentItem;
 
-    async function fetchTrending(type) {
-      const res = await fetch(`${BASE_URL}/trending/${type}/week?api_key=${API_KEY}`);
-      const data = await res.json();
-      return data.results;
-    }
-
-    async function fetchTrendingAnime() {
-  let allResults = [];
+   // async function fetchTrending(type) {
+    //  const res = await fetch(`${BASE_URL}/trending/${type}/week?api_key=${API_KEY}`);
+   //   const data = await res.json();
+  //    return data.results;
+ //   }
+async function fetchEpisodes(type, id) {
+  let endpoint = '';
+  if (type === 'tv') {
+    endpoint = `/tv/${id}/episodes?api_key=${API_KEY}`;
+  } else if (type === 'anime') {
+    endpoint = `/anime/${id}/episodes?api_key=${API_KEY}`;
+  }
+  const res = await fetch(`${BASE_URL}${endpoint}`);
+  const data = await res.json();
+  return data.results || [];
+}
+   // async function fetchTrendingAnime() {
+ // let allResults = [];
 
   // Fetch from multiple pages to get more anime (max 3 pages for demo)
-  for (let page = 1; page <= 3; page++) {
-    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
-    const data = await res.json();
-    const filtered = data.results.filter(item =>
-      item.original_language === 'ja' && item.genre_ids.includes(16)
-    );
-    allResults = allResults.concat(filtered);
-  }
+//  for (let page = 1; page <= 3; page++) {
+//    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
+//    const data = await res.json();
+//    const filtered = data.results.filter(item =>
+//      item.original_language === 'ja' && item.genre_ids.includes(16)
+//    );
+//    allResults = allResults.concat(filtered);
+//  }
 
-  return allResults;
+//  return allResults;
+//}
+function displayEpisodes(episodes, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = ''; // Clear the container first
+  episodes.forEach(episode => {
+    const episodeItem = document.createElement('div');
+    episodeItem.classList.add('episode-item');
+    episodeItem.innerHTML = `
+      <h4>Episode ${episode.episode_number}: ${episode.name}</h4>
+      <p>${episode.overview}</p>
+    `;
+    container.appendChild(episodeItem);
+  });
 }
 
+async function init() {
+  const movies = await fetchTrending('movie');
+  const tvShows = await fetchTrending('tv');
+  const anime = await fetchTrendingAnime();
+
+  // Fetch episodes for TV and Anime
+  const tvShowEpisodes = await Promise.all(tvShows.map(tvShow => fetchEpisodes('tv', tvShow.id)));
+  const animeEpisodes = await Promise.all(anime.map(animeShow => fetchEpisodes('anime', animeShow.id)));
+
+ // Display TV Shows with episodes
+  tvShows.forEach((tvShow, index) => {
+    const episodes = tvShowEpisodes[index];
+    displayList([tvShow], 'tvshows-list'); // Display TV Show
+    displayEpisodes(episodes, `tv-show-${tvShow.id}-episodes`); // Display Episodes
+  });
+
+  // Display Anime Shows with episodes
+  anime.forEach((animeShow, index) => {
+    const episodes = animeEpisodes[index];
+    displayList([animeShow], 'anime-list'); // Display Anime Show
+    displayEpisodes(episodes, `anime-show-${animeShow.id}-episodes`); // Display Episodes
+  });
+}
+
+// Call the init function to load everything
+init();
 
     function displayBanner(item) {
       document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
