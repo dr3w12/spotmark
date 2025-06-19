@@ -3,121 +3,62 @@ const API_KEY = 'a1e72fd93ed59f56e6332813b9f8dcae';
     const IMG_URL = 'https://image.tmdb.org/t/p/original';
     let currentItem;
 
-    async function fetchTrending(type) {
-      const res = await fetch(`${BASE_URL}/trending/${type}/week?api_key=${API_KEY}`);
-      const data = await res.json();
-      return data.results;
-    }
-
-    async function fetchTrendingAnime() {
-  let allResults = [];
-
-  // Fetch from multiple pages to get more anime (max 3 pages for demo)
-  for (let page = 1; page <= 3; page++) {
-    const res = await fetch(`${BASE_URL}/trending/tv/week?api_key=${API_KEY}&page=${page}`);
-    const data = await res.json();
-    const filtered = data.results.filter(item =>
-      item.original_language === 'ja' && item.genre_ids.includes(16)
-    );
-    allResults = allResults.concat(filtered);
+    // Add episode display for TV and Anime
+async function fetchEpisodes(type, id) {
+  let endpoint = '';
+  if (type === 'tv') {
+    endpoint = `/tv/${id}/episodes?api_key=${API_KEY}`;
+  } else if (type === 'anime') {
+    endpoint = `/anime/${id}/episodes?api_key=${API_KEY}`;
   }
-
-  return allResults;
+  const res = await fetch(`${BASE_URL}${endpoint}`);
+  const data = await res.json();
+  return data.results || [];
 }
 
+// Function to display episodes
+function displayEpisodes(episodes, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = ''; // Clear the container first
+  episodes.forEach(episode => {
+    const episodeItem = document.createElement('div');
+    episodeItem.classList.add('episode-item');
+    episodeItem.innerHTML = `
+      <h4>Episode ${episode.episode_number}: ${episode.name}</h4>
+      <p>${episode.overview}</p>
+    `;
+    container.appendChild(episodeItem);
+  });
+}
 
-    function displayBanner(item) {
-      document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
-      document.getElementById('banner-title').textContent = item.title || item.name;
-    }
+// Modified init function to display episodes for tv and anime
+async function init() {
+  const movies = await fetchTrending('movie');
+  const tvShows = await fetchTrending('tv');
+  const anime = await fetchTrendingAnime();
 
-    function displayList(items, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
-      items.forEach(item => {
-        const img = document.createElement('img');
-        img.src = `${IMG_URL}${item.poster_path}`;
-        img.alt = item.title || item.name;
-        img.onclick = () => showDetails(item);
-        container.appendChild(img);
-      });
-    }
+  // Fetch episodes for TV and Anime
+  const tvShowEpisodes = await Promise.all(tvShows.map(tvShow => fetchEpisodes('tv', tvShow.id)));
+  const animeEpisodes = await Promise.all(anime.map(animeShow => fetchEpisodes('anime', animeShow.id)));
 
-    function showDetails(item) {
-      currentItem = item;
-      document.getElementById('modal-title').textContent = item.title || item.name;
-      document.getElementById('modal-description').textContent = item.overview;
-      document.getElementById('modal-image').src = `${IMG_URL}${item.poster_path}`;
-      document.getElementById('modal-rating').innerHTML = '★'.repeat(Math.round(item.vote_average / 2));
-      changeServer();
-      document.getElementById('modal').style.display = 'flex';
-    }
+  // Display movie banner and lists
+  displayBanner(movies[Math.floor(Math.random() * movies.length)]);
+  displayList(movies, 'movies-list');
 
-    function changeServer() {
-      const server = document.getElementById('server').value;
-      const type = currentItem.media_type === "movie" ? "movie" : "tv";
-      let embedURL = "";
+  // Display TV Shows with episodes
+  tvShows.forEach((tvShow, index) => {
+    const episodes = tvShowEpisodes[index];
+    displayList([tvShow], 'tvshows-list'); // Display TV Show
+    displayEpisodes(episodes, `tv-show-${tvShow.id}-episodes`); // Display Episodes
+  });
 
-      if (server === "vidsrc.cc") {
-        embedURL = `https://vidsrc.cc/v2/embed/${type}/${currentItem.id}`;
-      } else if (server === "vidsrc.me") {
-        embedURL = `https://vidsrc.net/embed/${type}/?tmdb=${currentItem.id}`;
-      } else if (server === "player.videasy.net") {
-        embedURL = `https://player.videasy.net/${type}/${currentItem.id}`;
-      }
+  // Display Anime Shows with episodes
+  anime.forEach((animeShow, index) => {
+    const episodes = animeEpisodes[index];
+    displayList([animeShow], 'anime-list'); // Display Anime Show
+    displayEpisodes(episodes, `anime-show-${animeShow.id}-episodes`); // Display Episodes
+  });
+}
 
-      document.getElementById('modal-video').src = embedURL;
-    }
-
-    function closeModal() {
-      document.getElementById('modal').style.display = 'none';
-      document.getElementById('modal-video').src = '';
-    }
-
-    function openSearchModal() {
-      document.getElementById('search-modal').style.display = 'flex';
-      document.getElementById('search-input').focus();
-    }
-
-    function closeSearchModal() {
-      document.getElementById('search-modal').style.display = 'none';
-      document.getElementById('search-results').innerHTML = '';
-    }
-
-    async function searchTMDB() {
-      const query = document.getElementById('search-input').value;
-      if (!query.trim()) {
-        document.getElementById('search-results').innerHTML = '';
-        return;
-      }
-
-      const res = await fetch(`${BASE_URL}/search/multi?api_key=${API_KEY}&query=${query}`);
-      const data = await res.json();
-
-      const container = document.getElementById('search-results');
-      container.innerHTML = '';
-      data.results.forEach(item => {
-        if (!item.poster_path) return;
-        const img = document.createElement('img');
-        img.src = `${IMG_URL}${item.poster_path}`;
-        img.alt = item.title || item.name;
-        img.onclick = () => {
-          closeSearchModal();
-          showDetails(item);
-        };
-        container.appendChild(img);
-      });
-    }
-
-    async function init() {
-      const movies = await fetchTrending('movie');
-      const tvShows = await fetchTrending('tv');
-      const anime = await fetchTrendingAnime();
-
-      displayBanner(movies[Math.floor(Math.random() * movies.length)]);
-      displayList(movies, 'movies-list');
-      displayList(tvShows, 'tvshows-list');
-      displayList(anime, 'anime-list');
-    }
-
-    init();
+// Call the init function to load everything
+init();
