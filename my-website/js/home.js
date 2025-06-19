@@ -75,22 +75,22 @@ async function init() {
 // Call the init function to load everything
 init();
 
-    function displayBanner(item) {
-      document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
-      document.getElementById('banner-title').textContent = item.title || item.name;
-    }
-
-    function displayList(items, containerId) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
-      items.forEach(item => {
-        const img = document.createElement('img');
-        img.src = `${IMG_URL}${item.poster_path}`;
-        img.alt = item.title || item.name;
-        img.onclick = () => showDetails(item);
-        container.appendChild(img);
-      });
-    }
+ //   function displayBanner(item) {
+ //     document.getElementById('banner').style.backgroundImage = `url(${IMG_URL}${item.backdrop_path})`;
+//      document.getElementById('banner-title').textContent = item.title || item.name;
+//    }
+//
+ //   function displayList(items, containerId) {
+//      const container = document.getElementById(containerId);
+//      container.innerHTML = '';
+//      items.forEach(item => {
+//        const img = document.createElement('img');
+//        img.src = `${IMG_URL}${item.poster_path}`;
+//        img.alt = item.title || item.name;
+//        img.onclick = () => showDetails(item);
+//        container.appendChild(img);
+//      });
+//    }
 
     function showDetails(item) {
       currentItem = item;
