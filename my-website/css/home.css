@@ -1,460 +1,651 @@
-/* Universal Styles - Keep it clean */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    /* Deep, dark background for a cinematic feel */
-    background-color: #1a1a1a;
-    color: #e0e0e0; /* Softer white for better readability */
-    font-family: 'Roboto', sans-serif; /* A more modern, elegant font */
-    line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a1a; /* Dark background for elegance */
+  color: #e0e0e0; /* Light gray text for contrast */
 }
 
-/* --- Header and Navigation --- */
+/* --- Navbar Styling --- */
 .navbar {
-    display: flex;
-    justify-content: space-between; /* Distribute items to edges */
-    align-items: center;
-    padding: 15px 40px; /* More padding for a premium feel */
-    background-color: #000000; /* Solid black for a strong header */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-    position: relative; /* Needed for logo positioning */
-    z-index: 20; /* Ensure navbar is above other elements */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px; /* Increased padding */
+  background: #0d0d0d; /* Even darker background for navbar */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
-.navbar-left {
-    flex: 1; /* Allows this div to take available space */
-    text-align: left; /* Aligns search bar to the left */
+.nav-brand {
+  display: flex;
+  align-items: center;
 }
 
-/* Logo centered in the upper section */
 .site-logo {
-    /* Keep absolute positioning for perfect center */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 60px; /* Adjust as needed for your logo's height */
-    max-width: 200px; /* Ensure it doesn't get too wide */
-    display: block;
-    padding: 0; /* Remove previous padding */
-    /* Add margin to prevent overlap with search/nav links on very wide screens */
-    margin: 0 auto;
-}
-
-.navbar img { /* This was for the original navbar img, let's keep it specific */
-    height: 40px; /* Adjust if you have other images in the navbar that need sizing */
-    display: none; /* Hide the old logo placement if it's still there */
+  max-width: 180px; /* Increased logo size for better visibility */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  padding: 0; /* Remove padding from logo itself */
+  filter: drop-shadow(0 0 8px rgba(255, 221, 38, 0.6)); /* Glow effect for the logo */
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px; /* More space between links */
-    flex: 1; /* Allows links to take available space */
-    justify-content: flex-end; /* Push links to the right */
-    /* Adjust padding-right if logo still overlaps on very wide screens,
-       but flex: 1 on navbar-left and nav-links should help manage space. */
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Increased gap between links and search */
 }
 
 .nav-links a {
-    color: #e0e0e0; /* Light color for contrast */
-    text-decoration: none;
-    font-weight: 500; /* Slightly bolder for presence */
-    transition: color 0.3s ease;
-    text-transform: uppercase; /* Modern touch */
-    letter-spacing: 0.8px;
+  color: #f7f7f7; /* Lighter color for links */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #e50914; /* Netflix red for a pop of color */
+  color: #FFDD26; /* Highlight color on hover */
 }
 
 .search-bar {
-    padding: 8px 15px; /* More comfortable padding */
-    border-radius: 20px; /* Fully rounded search bar */
-    border: 1px solid #444; /* Subtle border */
-    background-color: #333;
-    color: #e0e0e0;
-    transition: all 0.3s ease;
-    width: 200px; /* Give the search bar a defined width */
+  padding: 8px 15px; /* More padding for search bar */
+  border-radius: 20px; /* Rounded search bar */
+  border: 1px solid #444; /* Subtle border */
+  background-color: #333; /* Darker background for input */
+  color: #e0e0e0;
+  font-size: 1em;
+  transition: all 0.3s ease;
+}
+
+.search-bar::placeholder {
+  color: #bbb;
 }
 
 .search-bar:focus {
-    outline: none;
-    border-color: #e50914; /* Highlight on focus */
-    box-shadow: 0 0 8px rgba(229, 9, 20, 0.4);
+  outline: none;
+  border-color: #FFDD26; /* Highlight border on focus */
+  box-shadow: 0 0 8px rgba(255, 221, 38, 0.4);
 }
 
-/* --- Banner Section --- */
+/* --- Banner Styling --- */
 .banner {
-    height: 70vh; /* Taller banner for a more impactful visual */
-    background-size: cover;
-    background-position: center; /* Ensure image is centered */
-    display: flex;
-    align-items: flex-end; /* Align content to the bottom */
-    padding: 40px;
-    position: relative;
-    color: #ffffff; /* White text on the banner */
+  height: 60vh; /* Slightly taller banner */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end; /* Align title to the bottom */
+  padding: 40px; /* More padding */
+  position: relative;
+  overflow: hidden; /* Ensure content doesn't spill */
 }
 
 .banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Dark gradient at bottom */
-    z-index: 1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 1; /* Dark overlay for better text readability */
 }
 
 .banner h1 {
-    background: none; /* Remove previous background */
-    padding: 0;
-    font-size: 3.5em; /* Larger, more dominant title */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Subtle shadow for readability */
-    z-index: 2; /* Ensure text is above gradient */
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for title */
+  padding: 15px 25px; /* More padding */
+  border-radius: 8px;
+  color: #FFDD26; /* Highlight color for title */
+  font-size: 2.8em; /* Larger title */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 2;
 }
 
-/* --- Movie Rows --- */
+/* --- Row and List Styling --- */
 .row {
-    margin: 40px; /* Increased margin for better spacing */
-    color: #e0e0e0; /* Ensure row titles are visible */
+  margin: 30px 40px; /* Increased margin */
 }
 
 .row h2 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    border-bottom: 2px solid #333; /* Subtle separator */
-    padding-bottom: 10px;
-    display: inline-block; /* Only border the text itself */
+  margin-bottom: 20px; /* More space below heading */
+  color: #f7f7f7;
+  font-size: 1.8em;
+  border-bottom: 2px solid #FFDD26; /* Underline effect */
+  padding-bottom: 5px;
+  display: inline-block; /* Make underline only span content */
 }
 
 .list {
-    display: flex;
-    overflow-x: scroll; /* Allow horizontal scrolling */
-    padding-bottom: 15px; /* Space for scrollbar */
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #e50914 #333; /* Firefox */
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 15px; /* Add padding for scrollbar visibility */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
 }
 
 /* Custom scrollbar for Webkit browsers */
 .list::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 
 .list::-webkit-scrollbar-track {
-    background: #333;
-    border-radius: 10px;
+  background: #333;
+  border-radius: 10px;
 }
 
 .list::-webkit-scrollbar-thumb {
-    background-color: #e50914;
-    border-radius: 10px;
-    border: 2px solid #333;
+  background: #555;
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: #FFDD26;
 }
 
 .list img {
-    width: 180px; /* Slightly larger posters */
-    min-width: 180px; /* Prevent shrinking */
-    margin-right: 15px; /* More space between posters */
-    cursor: pointer;
-    border-radius: 8px; /* Slightly more rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Add subtle shadow */
+  width: 180px; /* Larger image size */
+  min-width: 180px; /* Ensure images don't shrink too much */
+  height: 270px; /* Maintain aspect ratio (approx 2:3) */
+  object-fit: cover;
+  margin-right: 15px; /* More space between images */
+  cursor: pointer;
+  border-radius: 8px; /* Slightly more rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .list img:hover {
-    transform: scale(1.08); /* More pronounced hover effect */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
-    z-index: 2;
+  transform: scale(1.08); /* More pronounced zoom effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  z-index: 2;
 }
 
-/* --- Modal Styles --- */
+/* --- Modal Styling --- */
 .modal {
-    background: rgba(0, 0, 0, 0.95); /* Darker, more opaque background */
-    backdrop-filter: blur(5px); /* Subtle blur effect behind modal */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95); /* Darker, more opaque background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100; /* High z-index */
+  backdrop-filter: blur(5px); /* Subtle blur effect */
 }
 
 .modal-content {
-    background: #1c1c1c; /* Darker background for content */
-    padding: 30px; /* More padding */
-    max-width: 900px; /* Wider modal */
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  background: #222;
+  padding: 30px; /* More padding */
+  width: 90%;
+  max-width: 900px; /* Increased max-width */
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease-out; /* Add fade-in animation */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .modal-body {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px; /* More space */
-    margin-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px; /* More space */
+  margin-bottom: 25px;
+  text-align: left; /* Align text within modal-text to left */
 }
 
 .modal-body img {
-    width: 35%; /* Slightly larger image in modal */
-    max-width: 300px; /* Cap image size */
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 35%; /* Slightly larger image in modal */
+  max-width: 200px; /* Cap image size */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .modal-text {
-    flex: 1;
-    text-align: left;
-    color: #cccccc; /* Lighter text for modal details */
+  flex: 1;
+  color: #e0e0e0;
 }
 
 .modal-text h2 {
-    color: #ffffff;
-    font-size: 2.2em;
-    margin-bottom: 10px;
-}
-
-.modal-text p {
-    margin-bottom: 15px;
+  color: #FFDD26; /* Highlight color for modal title */
+  font-size: 2.2em;
+  margin-bottom: 10px;
 }
 
 .stars {
-    color: #ffc107; /* Brighter gold for stars */
-    font-size: 1.2em;
-    margin-top: 10px;
+  color: gold;
+  font-size: 1.5em; /* Larger stars */
+  margin-bottom: 15px;
+}
+
+.modal-text p {
+  font-size: 1.1em;
+  line-height: 1.6;
 }
 
 .close {
-    color: #e0e0e0; /* Consistent close button color */
-    font-size: 32px; /* Larger close button */
-    transition: color 0.2s ease;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+  font-size: 30px; /* Larger close button */
+  color: #f00; /* Red color */
+  transition: transform 0.2s ease;
 }
 
 .close:hover {
-    color: #e50914;
+  transform: scale(1.2) rotate(5deg);
+  color: #ff5555;
 }
 
 .server-selector {
-    margin: 20px 0;
-    text-align: left;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.server-selector label {
+  font-size: 1.1em;
+  margin-right: 10px;
+  color: #f7f7f7;
 }
 
 .server-selector select {
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: #e0e0e0;
-    appearance: none; /* Remove default arrow */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #e0e0e0;
+  font-size: 1em;
+  cursor: pointer;
 }
 
-/* --- Search Modal --- */
+.server-selector select:focus {
+  outline: none;
+  border-color: #FFDD26;
+}
+
+iframe#modal-video {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+/* --- Search Modal Styling --- */
 .search-modal {
-    background: rgba(0, 0, 0, 0.98); /* Even darker for full overlay */
-    backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.98); /* Very dark, almost opaque */
+  display: none;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+  flex-direction: column;
+  padding-top: 80px; /* Space from top */
+  z-index: 110;
+  backdrop-filter: blur(8px); /* More blur */
 }
 
 .search-modal input {
-    width: 400px; /* Wider search input */
-    padding: 12px 20px;
-    border-radius: 25px; /* More rounded */
-    font-size: 1.1em;
-    background-color: #2c2c2c;
-    color: #ffffff;
-    border: none;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 50%; /* Wider search input */
+  max-width: 500px;
+  padding: 12px 20px;
+  border-radius: 30px; /* More rounded */
+  border: 1px solid #666;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .search-modal input::placeholder {
-    color: #aaaaaa;
+  color: #aaa;
+}
+
+.search-modal input:focus {
+  outline: none;
+  border-color: #FFDD26;
+  box-shadow: 0 0 15px rgba(255, 221, 38, 0.6);
 }
 
 .search-modal .results {
-    gap: 15px; /* More space in results grid */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* More space between search results */
+  padding: 0 20px;
+  max-height: calc(100vh - 200px); /* Limit height and allow scrolling */
+  overflow-y: auto;
 }
 
+/* Custom scrollbar for Webkit search results */
+.search-modal .results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-modal .results::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 10px;
+}
+
+.search-modal .results::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.search-modal .results::-webkit-scrollbar-thumb:hover {
+  background: #FFDD26;
+}
+
+
 .search-modal img {
-    width: 150px; /* Larger search result images */
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 150px; /* Larger images in search results */
+  height: 225px; /* Maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .search-modal img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
 }
 
-/* --- Footer --- */
+.search-modal .close {
+  position: absolute;
+  top: 30px; /* Position higher */
+  right: 40px; /* Position further right */
+  font-size: 36px; /* Even larger close button */
+  color: #f00;
+  transition: transform 0.2s ease;
+}
+
+.search-modal .close:hover {
+  transform: scale(1.2) rotate(5deg);
+  color: #ff5555;
+}
+
+/* --- Footer Styling --- */
 .footer {
-    background: #000000; /* Darker footer */
-    color: #a0a0a0; /* Softer color for footer text */
-    padding: 30px 20px; /* More padding */
-    margin-top: 50px; /* More space above footer */
-    border-top: 1px solid #333; /* Subtle top border */
+  background: #0d0d0d; /* Matching navbar background */
+  color: #a0a0a0; /* Lighter gray for footer text */
+  padding: 25px 40px; /* More padding */
+  text-align: center;
+  margin-top: 60px; /* More space above footer */
+  border-top: 1px solid #333; /* Subtle top border */
 }
 
 .footer-content {
-    gap: 15px; /* More space between footer elements */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap */
+}
+
+.footer-content p {
+  font-size: 0.9em;
+  line-height: 1.5;
 }
 
 .footer-links {
-    gap: 25px; /* More space between footer links */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Increased gap */
 }
 
 .footer-links a {
-    color: #e0e0e0; /* Lighter color for visibility */
-    transition: color 0.3s;
+  color: #FFDD26; /* Highlight color for footer links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
 .footer-links a:hover {
-    color: #e50914; /* Highlight on hover */
+  color: #f7f7f7; /* Lighter on hover */
 }
 
-/* --- Mobile Responsiveness --- */
-@media (max-width: 992px) { /* Adjust breakpoint for larger tablets/laptops */
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .site-logo {
-        height: 50px; /* Slightly smaller logo on tablets */
-    }
-
-    .nav-links {
-        padding-right: 0; /* Remove padding */
-        justify-content: center; /* Center links on smaller screens */
-        gap: 15px;
-    }
-
-    .search-bar {
-        width: 150px; /* Smaller search bar on tablets */
-    }
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+  .site-logo {
+    max-width: 150px;
+  }
+  .banner h1 {
+    font-size: 2.2em;
+    padding: 10px 20px;
+  }
+  .row {
+    margin: 25px 25px;
+  }
+  .list img {
+    width: 160px;
+    min-width: 160px;
+    height: 240px;
+  }
+  .modal-content {
+    max-width: 700px;
+  }
+  .modal-text h2 {
+    font-size: 1.8em;
+  }
+  .modal-text p {
+    font-size: 1em;
+  }
+  .search-modal input {
+    width: 60%;
+  }
+  .search-modal img {
+    width: 130px;
+    height: 195px;
+  }
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column; /* Stack nav items on small screens */
-        padding: 15px;
-        align-items: center;
-    }
+  .navbar {
+    flex-direction: column; /* Stack logo and nav links */
+    align-items: center;
+    padding: 15px 20px;
+  }
 
-    .navbar-left {
-        order: 2; /* Put search bar below logo on mobile */
-        margin-top: 15px;
-        text-align: center;
-    }
+  .nav-brand {
+    margin-bottom: 15px;
+  }
 
-    .site-logo {
-        position: static; /* Remove absolute positioning */
-        transform: none; /* Remove transform */
-        margin-bottom: 0; /* Adjust margin */
-        height: 45px;
-        order: 1; /* Put logo at the top on mobile */
-    }
+  .nav-links {
+    flex-direction: column; /* Stack home link and search bar */
+    width: 100%;
+    gap: 15px;
+  }
 
-    .nav-links {
-        flex-wrap: wrap; /* Allow links to wrap */
-        justify-content: center;
-        gap: 10px;
-        margin-top: 15px; /* Adjust margin */
-        order: 3; /* Put nav links below search on mobile */
-    }
+  .nav-links a,
+  .search-bar {
+    width: 90%; /* Make them wider */
+    text-align: center;
+  }
+  
+  .banner {
+    height: 40vh;
+    padding: 20px;
+  }
 
-    .nav-links a, .search-bar {
-        width: auto; /* Allow items to size naturally */
-        margin-top: 0;
-    }
+  .banner h1 {
+    font-size: 1.8em;
+    padding: 8px 15px;
+  }
 
-    .search-bar {
-        width: 80%; /* Wider search bar on mobile */
-        max-width: 300px;
-    }
+  .row {
+    margin: 20px 20px;
+  }
 
-    .banner {
-        height: 45vh; /* Shorter banner on mobile */
-        padding: 20px;
-        align-items: center; /* Center banner content */
-        text-align: center;
-    }
+  .row h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
 
-    .banner h1 {
-        font-size: 2.5em;
-    }
+  .list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .row {
-        margin: 20px;
-    }
+  .list img {
+    width: 130px;
+    min-width: 130px;
+    height: 195px;
+    margin-right: 10px;
+  }
 
-    .list img {
-        width: 140px; /* Smaller posters on mobile */
-        min-width: 140px;
-    }
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
 
-    .modal-body {
-        flex-direction: column; /* Stack image and text in modal */
-        align-items: center;
-        text-align: center;
-    }
+  .modal-body {
+    flex-direction: column; /* Stack image and text */
+    align-items: center;
+    gap: 20px;
+  }
 
-    .modal-body img {
-        width: 60%; /* Larger image in stacked modal */
-        max-width: 250px;
-    }
+  .modal-body img {
+    width: 50%; /* Larger image in stacked view */
+    max-width: 180px;
+  }
 
-    .modal-text {
-        text-align: center; /* Center text in modal */
-        margin-top: 20px;
-    }
+  .modal-text {
+    text-align: center;
+  }
 
-    .modal-text h2 {
-        font-size: 1.8em;
-    }
+  .modal-text h2 {
+    font-size: 1.6em;
+  }
 
-    .search-modal input {
-        width: 90%;
-        margin-top: 30px;
-    }
+  .stars {
+    font-size: 1.3em;
+  }
 
-    .search-modal .results {
-        gap: 8px;
-    }
+  .modal-text p {
+    font-size: 0.95em;
+  }
 
-    .search-modal img {
-        width: 100px;
-    }
+  .search-modal input {
+    margin-top: 20px;
+    width: 80%;
+  }
 
-    .footer-links {
-        flex-direction: column; /* Stack footer links */
-        gap: 10px;
-    }
+  .search-modal .results {
+    padding: 0 10px;
+    gap: 10px;
+  }
+
+  .search-modal img {
+    width: 100px;
+    height: 150px;
+  }
+
+  .search-modal .close {
+    font-size: 30px;
+    top: 20px;
+    right: 20px;
+  }
+
+  .footer {
+    padding: 20px;
+    margin-top: 40px;
+  }
+  .footer-content p {
+    font-size: 0.8em;
+  }
+  .footer-links {
+    gap: 10px;
+  }
 }
 
 @media (max-width: 480px) {
-    body {
-        font-size: 0.9em;
-    }
+  .navbar {
+    padding: 10px 15px;
+  }
+  .site-logo {
+    max-width: 120px;
+  }
+  .nav-links a,
+  .search-bar {
+    width: 100%; /* Full width */
+  }
 
-    .banner h1 {
-        font-size: 2em;
-    }
+  .banner {
+    height: 30vh;
+    padding: 15px;
+  }
+  .banner h1 {
+    font-size: 1.5em;
+    padding: 5px 10px;
+  }
 
-    .row h2 {
-        font-size: 1.5em;
-    }
+  .row {
+    margin: 15px 15px;
+  }
+  .row h2 {
+    font-size: 1.3em;
+  }
 
-    .modal-content {
-        width: 95%;
-        padding: 20px;
-    }
+  .list img {
+    width: 100px;
+    min-width: 100px;
+    height: 150px;
+  }
 
-    .modal-body img {
-        width: 70%;
-    }
+  .modal-content {
+    padding: 15px;
+  }
+  .modal-body img {
+    width: 60%;
+    max-width: 150px;
+  }
+  .modal-text h2 {
+    font-size: 1.4em;
+  }
+  .stars {
+    font-size: 1.1em;
+  }
+  .modal-text p {
+    font-size: 0.9em;
+  }
 
-    .search-modal input {
-        width: 95%;
-    }
+  .search-modal input {
+    width: 90%;
+  }
+  .search-modal img {
+    width: 80px;
+    height: 120px;
+  }
+  .search-modal .close {
+    font-size: 24px;
+    top: 15px;
+    right: 15px;
+  }
+  .footer {
+    padding: 15px;
+  }
 }
