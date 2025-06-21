@@ -1,93 +1,86 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SpotmarkStream</title>
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="js/home.js" as="script">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script defer src="js/home.js"></script>
-
-<script type='text/javascript' src='//pl26912504.profitableratecpm.com/10/4b/dc/104bdcd443642bc19dcdd8d772031a3c.js'></script>
-
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var r=window,p="add7d7390bf5a1c15b3f212287567154",g=[["siteId",788+243-496-39+26+5208770],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],t=["d3d3LmludGVsbGlnZW5jZWFkeC5jb20vZnN2Zy5wYW4tem9vbS5taW4uY3Nz","ZDJrbHg4N2Jnem5nY2UuY2xvdWRmcm9udC5uZXQvei9qanF1ZXJ5Lmpzb252aWV3Lm1pbi5qcw=="],v=-1,o,u,x=function(){clearTimeout(u);v++;if(t[v]&&!(1775925141000<(new Date).getTime()&&1<v)){o=r.document.createElement("script");o.type="text/javascript";o.async=!0;var w=r.document.getElementsByTagName("script")[0];o.src="https://"+atob(t[v]);o.crossOrigin="anonymous";o.onerror=x;o.onload=function(){clearTimeout(u);r[p.slice(0,16)+p.slice(0,16)]||x()};u=setTimeout(x,5E3);w.parentNode.insertBefore(o,w)}};if(!r[p]){try{Object.freeze(r[p]=g)}catch(e){}x()}})();
-/*]]>/* */
-</script>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBO-like Streaming</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-  <div class="navbar">     
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <img class="site-logo" src="Spotmarklogo.png" alt="My Logo">
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>MyStream</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="init()">Home</a></li>
+                <li><a href="#movies-section">Movies</a></li>
+                <li><a href="#tvshows-section">TV Shows</a></li>
+                <li><a="#anime-section">Anime</a></li>
+            </ul>
+        </nav>
+        <div class="search-icon" onclick="openSearchModal()">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/search--v1.png" alt="Search">
+        </div>
+    </header>
+
+    <main>
+        <section class="banner" id="banner">
+            <div class="banner-content">
+                <h2 id="banner-title"></h2>
+                </div>
+        </section>
+
+        <section class="content-section">
+            <h3 id="movies-section">Trending Movies</h3>
+            <div class="media-list" id="movies-list">
+                </div>
+        </section>
+
+        <section class="content-section">
+            <h3 id="tvshows-section">Trending TV Shows</h3>
+            <div class="media-list" id="tvshows-list">
+                </div>
+        </section>
+
+        <section class="content-section">
+            <h3 id="anime-section">Trending Anime</h3>
+            <div class="media-list" id="anime-list">
+                </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Poster">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div class="modal-rating" id="modal-rating"></div>
+            <div class="modal-video-container">
+                <iframe id="modal-video" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="server-selection">
+                <label for="server">Select Server:</label>
+                <select id="server" onchange="changeServer()">
+                    <option value="vidsrc.cc">vidsrc.cc</option>
+                    <option value="vidsrc.me">vidsrc.me</option>
+                    <option value="player.videasy.net">player.videasy.net</option>
+                </select>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-  </div>
-
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-      <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-          <option value="2embed.cc">2embed.cc</option>
-         <option value="vidfast.pro">vidfast.pro</option>   
-        </select>
-      </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    <div id="search-modal" class="modal">
+        <div class="modal-content search-modal-content">
+            <span class="close-button" onclick="closeSearchModal()">&times;</span>
+            <input type="text" id="search-input" placeholder="Search for movies or TV shows..." onkeyup="searchTMDB()">
+            <div id="search-results" class="media-list">
+                </div>
+        </div>
     </div>
-  </div>
 
-  <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color:red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
-  </div>
-
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 SpotmarkStream does not host or upload any videos. All content is provided by third-party services and is publicly available online. If you have any legal issues, please contact the appropriate media file owners or host sites. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
-    </div>
-  </div>
-</footer>
-
-  
+    <script src="home.js"></script>
 </body>
+</html>
