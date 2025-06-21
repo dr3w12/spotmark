@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,15 +15,20 @@
 
   <script type="text/javascript" data-cfasync="false">
 /*<![CDATA[/* */
-(function(){var r=window,p="add7d7390bf5a1c15b3f212287567154",g=[["siteId",788+243-496-39+26+5208770],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],t=["d3d3LmludGVsbGlnZW5jZWFkeC5jb20vZnN2Zy5wYW4tem9vbS5taW4uY3Nz","ZDJrbHg4N2Jnem5nY2UuY2xvdWRmcm9udC5uZXQvei9qanF1ZXJ5Lmpzb252aWV3Lm1pbi5qcw=="],v=-1,o,u,x=function(){clearTimeout(u);v++;if(t[v]&&!(1775925141000<(new Date).getTime()&&1<v)){o=r.document.createElement("script");o.type="text/javascript";o.async=!0;var w=r.document.getElementsByTagName("script")[0];o.src="https://"+atob(t[v]);o.crossOrigin="anonymous";o.onerror=x;o.onload=function(){clearTimeout(u);r[p.slice(0,16)+p.slice(0,16)]||x()};u=setTimeout(x,5E3);w.parentNode.insertBefore(o,w)}};if(!r[p]){try{Object.freeze(r[p]=g)}catch(e){}x()}})();
+(function(){var r=window,p="add7d7390bf5a1c15b3f212287567154",g=[["siteId",788+243-496-39+26+5208770],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],t=["d3d3LmludGVsbGxpZ2VuY2VhZHguY29tL2ZzdmcucGFuLXpvb20ubWluLmNzcw==","ZDJrbHg4N2Jnem5nY2UuY2xvdWRmcm9udC5uZXQvei9qanF1ZXJ5Lmpzb252aWV3Lm1pbi5qcw=="],v=-1,o,u,x=function(){clearTimeout(u);v++;if(t[v]&&!(1775925141000<(new Date).getTime()&&1<v)){o=r.document.createElement("script");o.type="text/javascript";o.async=!0;var w=r.document.getElementsByTagName("script")[0];o.src="https://"+atob(t[v]);o.crossOrigin="anonymous";o.onerror=x;o.onload=function(){clearTimeout(u);r[p.slice(0,16)+p.slice(0,16)]||x()};u=setTimeout(x,5E3);w.parentNode.insertBefore(o,w)}};if(!r[p]){try{Object.freeze(r[p]=g)}catch(e){}x()}})();
 /*]]>/* */
 </script>
   
 </head>
-  <div class="navbar">     
+<body>
+  <div class="navbar">      
+    <div class="nav-brand">
+      <a href="index.html">
+        <img class="site-logo" src="Spotmarklogo.png" alt="SpotmarkStream Logo">
+      </a>
+    </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <img class="site-logo" src="Spotmarklogo.png" alt="My Logo">
       <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
     </div>
   </div>
@@ -50,14 +56,14 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
       <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
+            
       <div class="server-selector">
         <label for="server">Change Server:</label>
         <select id="server" onchange="changeServer()">
@@ -65,7 +71,7 @@
           <option value="vidsrc.me">Vidsrc.me</option>
           <option value="player.videasy.net">Player.Videasy.net</option>
           <option value="2embed.cc">2embed.cc</option>
-         <option value="vidfast.pro">vidfast.pro</option>   
+          <option value="vidfast.pro">vidfast.pro</option>    
         </select>
       </div>
       <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
@@ -91,3 +97,4 @@
 
   
 </body>
+</html>
