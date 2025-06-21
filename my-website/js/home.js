@@ -65,7 +65,7 @@ const API_KEY = 'a1e72fd93ed59f56e6332813b9f8dcae';
       } else if (server === "player.videasy.net") {
         embedURL = `https://player.videasy.net/${type}/${currentItem.id}`;
       } else if (server === "2embed.cc") {
-        embedURL = `https://www.2embed.cc/${type}/${currentItem.id}`;
+        embedURL = `https://2embed.cc/${type}/${currentItem.id}`;
       } else if (server === "vidfast.pro") {
         embedURL = `https://vidfast.pro/${type}/${currentItem.id}`;
       }
