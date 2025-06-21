@@ -1,93 +1,225 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SpotmarkStream</title>
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="js/home.js" as="script">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <script defer src="js/home.js"></script>
-
-<script type='text/javascript' src='//pl26912504.profitableratecpm.com/10/4b/dc/104bdcd443642bc19dcdd8d772031a3c.js'></script>
-
-  <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var r=window,p="add7d7390bf5a1c15b3f212287567154",g=[["siteId",788+243-496-39+26+5208770],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],t=["d3d3LmludGVsbGlnZW5jZWFkeC5jb20vZnN2Zy5wYW4tem9vbS5taW4uY3Nz","ZDJrbHg4N2Jnem5nY2UuY2xvdWRmcm9udC5uZXQvei9qanF1ZXJ5Lmpzb252aWV3Lm1pbi5qcw=="],v=-1,o,u,x=function(){clearTimeout(u);v++;if(t[v]&&!(1775925141000<(new Date).getTime()&&1<v)){o=r.document.createElement("script");o.type="text/javascript";o.async=!0;var w=r.document.getElementsByTagName("script")[0];o.src="https://"+atob(t[v]);o.crossOrigin="anonymous";o.onerror=x;o.onload=function(){clearTimeout(u);r[p.slice(0,16)+p.slice(0,16)]||x()};u=setTimeout(x,5E3);w.parentNode.insertBefore(o,w)}};if(!r[p]){try{Object.freeze(r[p]=g)}catch(e){}x()}})();
-/*]]>/* */
-</script>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Movie Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
-  <div class="navbar">     
-    <div class="nav-links">
-     <img class="site-logo" src="Spotmarklogo.png" alt="My Logo">
-      <a href="index.html">Home</a>  
-    <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+<body>
+
+    <header class="navbar">
+        <img src="your-logo-path.png" alt="Movie Hub Logo" class="site-logo">
+
+        <nav class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Movies</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Genres</a>
+            <a href="#">My List</a>
+        </nav>
+        <div class="nav-icons">
+            <input type="text" placeholder="Search..." class="search-bar" onclick="openSearchModal()">
+        </div>
+    </header>
+
+    <main>
+        <section class="banner" style="background-image: url('banner-movie-image.jpg');">
+            <h1>Experience Cinematic Masterpieces</h1>
+        </section>
+
+        <section class="row">
+            <h2>Trending Now</h2>
+            <div class="list">
+                <img src="poster1.jpg" alt="Movie Title 1" onclick="openModal('Movie Title 1', 'A brief, exciting description of Movie Title 1. It\'s a must-watch cinematic experience that will keep you on the edge of your seat!', '2024', '140 min', '9.2', 'Director Name', 'Actor A, Actor B')">
+                <img src="poster2.jpg" alt="Movie Title 2" onclick="openModal('Movie Title 2', 'Dive into the thrilling world of Movie Title 2, an epic adventure filled with suspense and unforgettable characters.', '2023', '120 min', '8.5', 'Director Name', 'Actor C, Actor D')">
+                <img src="poster3.jpg" alt="Movie Title 3" onclick="openModal('Movie Title 3', 'A heartwarming tale that explores themes of friendship and courage. Perfect for a cozy movie night.', '2025', '100 min', '7.8', 'Director Name', 'Actor E, Actor F')">
+                <img src="poster4.jpg" alt="Movie Title 4" onclick="openModal('Movie Title 4', 'An intense drama that will challenge your perceptions and leave you thinking long after the credits roll.', '2024', '155 min', '9.0', 'Director Name', 'Actor G, Actor H')">
+                <img src="poster5.jpg" alt="Movie Title 5" onclick="openModal('Movie Title 5', 'Get ready for action! Movie Title 5 delivers high-octane sequences and a gripping storyline.', '2023', '130 min', '8.7', 'Director Name', 'Actor I, Actor J')">
+                <img src="poster6.jpg" alt="Movie Title 6" onclick="openModal('Movie Title 6', 'A visually stunning sci-fi epic that pushes the boundaries of imagination. A true masterpiece.', '2025', '160 min', '9.5', 'Director Name', 'Actor K, Actor L')">
+                <img src="poster7.jpg" alt="Movie Title 7" onclick="openModal('Movie Title 7', 'Experience the chilling suspense of Movie Title 7, a psychological thriller that will keep you guessing.', '2024', '110 min', '8.1', 'Director Name', 'Actor M, Actor N')">
+                <img src="poster8.jpg" alt="Movie Title 8" onclick="openModal('Movie Title 8', 'A vibrant animated film for all ages, brimming with humor and heartwarming moments.', '2023', '95 min', '8.0', 'Director Name', 'Voice Actor A, Voice Actor B')">
+                </div>
+        </section>
+
+        <section class="row">
+            <h2>New Releases</h2>
+            <div class="list">
+                <img src="poster9.jpg" alt="Movie Title 9" onclick="openModal('Movie Title 9', 'The highly anticipated sequel is here! Bigger action, higher stakes, and unforgettable moments.', '2025', '145 min', '9.1', 'Director Name', 'Actor O, Actor P')">
+                <img src="poster10.jpg" alt="Movie Title 10" onclick="openModal('Movie Title 10', 'A captivating historical drama based on true events. A powerful story of triumph and resilience.', '2024', '130 min', '8.6', 'Director Name', 'Actor Q, Actor R')">
+                <img src="poster11.jpg" alt="Movie Title 11" onclick="openModal('Movie Title 11', 'Step into a world of magic and wonder with this enchanting fantasy adventure.', '2025', '115 min', '8.3', 'Director Name', 'Actor S, Actor T')">
+                <img src="poster12.jpg" alt="Movie Title 12" onclick="openModal('Movie Title 12', 'A gripping crime thriller with unexpected twists and turns. You won\'t see it coming!', '2024', '128 min', '8.9', 'Director Name', 'Actor U, Actor V')">
+                <img src="poster13.jpg" alt="Movie Title 13" onclick="openModal('Movie Title 13', 'A delightful comedy that will leave you in stitches. Pure entertainment for the whole family.', '2023', '90 min', '7.5', 'Director Name', 'Actor W, Actor X')">
+                </div>
+        </section>
+
+        <section class="row">
+            <h2>Critically Acclaimed</h2>
+            <div class="list">
+                <img src="poster14.jpg" alt="Movie Title 14" onclick="openModal('Movie Title 14', 'A thought-provoking indie film that has garnered widespread critical acclaim for its unique storytelling.', '2022', '105 min', '9.3', 'Director Name', 'Actor Y, Actor Z')">
+                <img src="poster15.jpg" alt="Movie Title 15" onclick="openModal('Movie Title 15', 'Recipient of multiple awards, this film is a testament to brilliant acting and compelling narrative.', '2021', '140 min', '9.4', 'Director Name', 'Actor AA, Actor BB')">
+                <img src="poster16.jpg" alt="Movie Title 16" onclick="openModal('Movie Title 16', 'A timeless classic remastered for a new generation. Its impact on cinema is undeniable.', '1999', '160 min', '9.6', 'Director Name', 'Actor CC, Actor DD')">
+                </div>
+        </section>
+    </main>
+
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modalMoviePoster" src="" alt="Movie Poster">
+                <div class="modal-text">
+                    <h2 id="modalMovieTitle"></h2>
+                    <p id="modalMovieDescription"></p>
+                    <p><strong>Year:</strong> <span id="modalMovieYear"></span></p>
+                    <p><strong>Duration:</strong> <span id="modalMovieDuration"></span></p>
+                    <p><strong>Rating:</strong> <span id="modalMovieRating"></span> <span class="stars"></span></p>
+                    <p><strong>Director:</strong> <span id="modalMovieDirector"></span></p>
+                    <p><strong>Cast:</strong> <span id="modalMovieCast"></span></p>
+                    <div class="server-selector">
+                        <label for="server-select">Select Server:</label>
+                        <select id="server-select">
+                            <option value="server1">Server 1 (HD)</option>
+                            <option value="server2">Server 2 (FHD)</option>
+                            <option value="server3">Server 3 (SD)</option>
+                        </select>
+                    </div>
+                    <button class="play-button">Watch Now</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-  </div>
-
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-      <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-          <option value="2embed.cc">2embed.cc</option>
-         <option value="vidfast.pro">vidfast.pro</option>   
-        </select>
-      </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+    <div id="searchModal" class="search-modal">
+        <span class="close" onclick="closeSearchModal()">&times;</span>
+        <input type="text" id="searchInput" placeholder="Search movies...">
+        <div class="results" id="searchResults">
+            <img src="poster1.jpg" alt="Example Search Result 1">
+            <img src="poster2.jpg" alt="Example Search Result 2">
+            <img src="poster3.jpg" alt="Example Search Result 3">
+            <img src="poster4.jpg" alt="Example Search Result 4">
+        </div>
     </div>
-  </div>
 
-  <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color:red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
-  </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Elegant Movie Hub. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About Us</a>
+            </div>
+        </div>
+    </footer>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 SpotmarkStream does not host or upload any videos. All content is provided by third-party services and is publicly available online. If you have any legal issues, please contact the appropriate media file owners or host sites. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
-    </div>
-  </div>
-</footer>
+    <script>
+        // JavaScript for Modal functionality
+        const movieModal = document.getElementById('movieModal');
+        const searchModal = document.getElementById('searchModal');
+        const modalMoviePoster = document.getElementById('modalMoviePoster');
+        const modalMovieTitle = document.getElementById('modalMovieTitle');
+        const modalMovieDescription = document.getElementById('modalMovieDescription');
+        const modalMovieYear = document.getElementById('modalMovieYear');
+        const modalMovieDuration = document.getElementById('modalMovieDuration');
+        const modalMovieRating = document.getElementById('modalMovieRating');
+        const modalMovieDirector = document.getElementById('modalMovieDirector');
+        const modalMovieCast = document.getElementById('modalMovieCast');
+        const modalStars = document.querySelector('.modal-text .stars');
 
-  
+        function openModal(title, description, year, duration, rating, director, cast) {
+            modalMovieTitle.textContent = title;
+            modalMovieDescription.textContent = description;
+            modalMoviePoster.src = "https://via.placeholder.com/300x450?text=" + encodeURIComponent(title); // Placeholder for modal image
+            modalMovieYear.textContent = year;
+            modalMovieDuration.textContent = duration;
+            modalMovieRating.textContent = rating;
+            modalMovieDirector.textContent = director;
+            modalMovieCast.textContent = cast;
+            
+            // Populate stars based on rating (simple example)
+            const ratingValue = parseFloat(rating);
+            let starsHtml = '';
+            for (let i = 0; i < 5; i++) {
+                if (i < Math.floor(ratingValue / 2)) { // Assuming 10-point scale, so divide by 2 for 5 stars
+                    starsHtml += '<i class="fas fa-star"></i>';
+                } else if (i < (ratingValue / 2) && (ratingValue / 2) % 1 !== 0) {
+                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+            }
+            modalStars.innerHTML = starsHtml;
+
+            movieModal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            movieModal.style.display = 'none';
+        }
+
+        function openSearchModal() {
+            searchModal.style.display = 'flex';
+            document.getElementById('searchInput').focus(); // Focus on the search input
+        }
+
+        function closeSearchModal() {
+            searchModal.style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == movieModal) {
+                movieModal.style.display = "none";
+            }
+            if (event.target == searchModal) {
+                searchModal.style.display = "none";
+            }
+        }
+
+        // Basic search functionality (for demonstration)
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const resultsDiv = document.getElementById('searchResults');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            // In a real application, you'd fetch data from an API
+            const dummyMovies = [
+                { title: 'Movie Title 1', poster: 'poster1.jpg' },
+                { title: 'Movie Title 2', poster: 'poster2.jpg' },
+                { title: 'Movie Title 3', poster: 'poster3.jpg' },
+                { title: 'Movie Title 4', poster: 'poster4.jpg' },
+                { title: 'Another Great Movie', poster: 'poster5.jpg' },
+                { title: 'Action Packed Thriller', poster: 'poster6.jpg' }
+            ];
+
+            const filteredMovies = dummyMovies.filter(movie =>
+                movie.title.toLowerCase().includes(searchTerm)
+            );
+
+            if (searchTerm === '') {
+                // Show some default results or clear all
+                resultsDiv.innerHTML = `
+                    <img src="poster1.jpg" alt="Example Search Result 1">
+                    <img src="poster2.jpg" alt="Example Search Result 2">
+                    <img src="poster3.jpg" alt="Example Search Result 3">
+                    <img src="poster4.jpg" alt="Example Search Result 4">
+                `;
+            } else if (filteredMovies.length > 0) {
+                filteredMovies.forEach(movie => {
+                    const img = document.createElement('img');
+                    img.src = movie.poster;
+                    img.alt = movie.title;
+                    img.onclick = () => { /* Add modal opening logic for search results here if needed */ console.log(`Clicked ${movie.title}`); };
+                    resultsDiv.appendChild(img);
+                });
+            } else {
+                resultsDiv.innerHTML = '<p style="color: #ccc;">No results found.</p>';
+            }
+        });
+
+    </script>
 </body>
+</html>
