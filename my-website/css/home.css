@@ -144,7 +144,7 @@
 }
 
 /* Ensure modal video is hidden when episode container is shown for TV shows by default */
-#modal-video {
+.modal-video {
     width: 100%;
     height: 400px; /* Adjust as needed */
     margin-top: 20px;
