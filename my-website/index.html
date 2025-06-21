@@ -55,6 +55,20 @@
     <h2 id="modal-title"></h2>
     <div class="stars" id="modal-rating"></div>
     <p id="modal-description"></p>
+
+    <div id="episode-container" style="margin-top: 20px; max-height: 300px; overflow-y: auto; display: none;">
+    </div>
+
+<div id="server-selection">
+    <label for="server">Choose Server:</label>
+    <select id="server" onchange="changeServer()">
+        <option value="vidsrc.cc">vidsrc.cc</option>
+        <option value="vidsrc.me">vidsrc.me</option>
+        <option value="player.videasy.net">player.videasy.net</option>
+    </select>
+</div>
+
+<iframe id="modal-video" frameborder="0" allowfullscreen></iframe>
   </div>
 </div>
       
