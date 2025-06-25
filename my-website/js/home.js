@@ -68,8 +68,8 @@ const API_KEY = 'a1e72fd93ed59f56e6332813b9f8dcae';
         embedURL = `https://2embed.cc/embed/${type}/${currentItem.id}`;
       } else if (server === "vidfast.pro") {
         embedURL = `https://vidfast.pro/${type}/${currentItem.id}`;
-      } else if (server === "vidsrc.domains") {
-        embedURL = `https://vidsrc.domains/${type}/${currentItem.id}`;
+      } else if (server === "vidsrc.me") {
+        embedURL = `https://vidsrc.me/${type}/${currentItem.id}`;
       }
 
 
